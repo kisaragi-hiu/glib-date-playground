@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "target": "esnext",
+    "module": "nodenext",
+    "lib": ["esnext"],
+    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0"]
+  }
+}
