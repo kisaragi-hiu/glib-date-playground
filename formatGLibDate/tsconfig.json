@@ -10,6 +10,6 @@
     "target": "esnext",
     "module": "nodenext",
     "lib": ["esnext"],
-    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0"]
+    "types": ["@girs/gjs", "@girs/gjs/dom", "@girs/glib-2.0", "@girs/gio-2.0"]
   }
 }
