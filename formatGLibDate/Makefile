@@ -8,7 +8,7 @@ ifeq (run,$(firstword $(MAKECMDGOALS)))
 endif
 
 dist/formatGLibDate.js: formatGLibDate.ts
-	@npx esbuild formatGLibDate.ts \
+	@bunx esbuild formatGLibDate.ts \
 		--outdir=dist \
 		--bundle \
 		--target=firefox91 \
