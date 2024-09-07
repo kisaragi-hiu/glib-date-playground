@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "allowImportingTsExtensions": true,
+    "target": "esnext",
+    "module": "preserve",
+    "lib": ["esnext", "dom"]
+  }
+}
