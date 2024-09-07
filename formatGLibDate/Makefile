@@ -7,8 +7,8 @@ ifeq (run,$(firstword $(MAKECMDGOALS)))
   $(eval $(RUN_ARGS):;@:)
 endif
 
-dist/playground.js: playground.ts
-	@npx esbuild playground.ts \
+dist/formatGLibDate.js: formatGLibDate.ts
+	@npx esbuild formatGLibDate.ts \
 		--outdir=dist \
 		--bundle \
 		--target=firefox91 \
@@ -19,5 +19,5 @@ dist/playground.js: playground.ts
 		--external:system \
 		--external:cairo
 
-run: dist/playground.js
-	gjs dist/playground.js $(RUN_ARGS)
+run: dist/formatGLibDate.js
+	gjs dist/formatGLibDate.js $(RUN_ARGS)
