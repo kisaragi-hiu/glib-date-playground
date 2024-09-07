@@ -21,3 +21,5 @@ dist/formatGLibDate.js: formatGLibDate.ts
 
 run: dist/formatGLibDate.js
 	gjs dist/formatGLibDate.js $(RUN_ARGS)
+
+build: dist/formatGLibDate.js
