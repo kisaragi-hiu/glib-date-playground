@@ -4,11 +4,11 @@ import type { default as GLibModule } from "@girs/glib-2.0";
 // (The import above is bundled and doesn't reach the runtime.)
 const GLib = imports.gi.GLib;
 const Gio = imports.gi.Gio;
-const { printf } = imports.format;
 
 function formatDate(date: GLibModule.DateTime, format: string, raw?: boolean) {
+  // We still need a JSON string for `raw` to handle when the output is null.
   return raw
-    ? date.format(format)
+    ? JSON.stringify(date.format(format))
     : `${JSON.stringify(format)}: ${JSON.stringify(date.format(format))}`;
 }
 
@@ -32,7 +32,7 @@ Options:
   --help / -h: show help (this message)
   --raw:
     Output is normally in a form that's easy to read. Use this flag to only
-    return the formatted dates.
+    return the formatted dates. (The value is still a JSON string.)
 
 GLib DateTime.format docs:
   https://docs.gtk.org/glib/method.DateTime.format.html`);
