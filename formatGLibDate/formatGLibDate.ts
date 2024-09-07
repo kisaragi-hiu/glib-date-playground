@@ -39,7 +39,9 @@ GLib DateTime.format docs:
       if (raw) {
         print(date.format(format));
       } else {
-        print(`${format}: ${date.format(format)}`);
+        print(
+          `${JSON.stringify(format)}: ${JSON.stringify(date.format(format))}`,
+        );
       }
     }
   }
