@@ -6,14 +6,43 @@ const GLib = imports.gi.GLib;
 function main() {
   const parsedArgs = parseArgs({
     args: ARGV,
+    allowPositionals: true,
     options: {
-      format: { type: "string" },
+      help: { type: "boolean", short: "h" },
+      raw: { type: "boolean" },
     },
   });
-  const date = GLib.DateTime.new_now_local();
+  if (parsedArgs.values.help) {
+    print(`formatGLibDate [format] ...
 
-  const format = parsedArgs.values.format ?? "%FT%T%z";
-  print(date.format(format));
+Format the current time according to the given formats.
+
+If none is given, the default format is %FT%T%z.
+
+Options:
+  --help / -h: show help (this message)
+  --raw:
+    Output is normally in a form that's easy to read. Use this flag to only
+    return the formatted dates.
+
+GLib DateTime.format docs:
+  https://docs.gtk.org/glib/method.DateTime.format.html`);
+  } else {
+    const raw = parsedArgs.values.raw;
+    const date = GLib.DateTime.new_now_local();
+    if (!raw) {
+      print(`${date.format("%FT%T%z")}`);
+    }
+    for (const format of parsedArgs.positionals.length === 0
+      ? ["%FT%T%z"]
+      : parsedArgs.positionals) {
+      if (raw) {
+        print(date.format(format));
+      } else {
+        print(`${format}: ${date.format(format)}`);
+      }
+    }
+  }
 }
 
 main();
