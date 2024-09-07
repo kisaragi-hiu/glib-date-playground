@@ -2,7 +2,14 @@
   "dependencies": {
     "@girs/gjs": "^4.0.0-beta.15",
     "@girs/glib-2.0": "^2.80.3-4.0.0-beta.15",
+    "@pkgjs/parseargs": "^0.11.0",
     "esbuild": "^0.23.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/pkgjs__parseargs": "^0.10.3"
+  },
+  "patchedDependencies": {
+    "@pkgjs/parseargs@0.11.0": "patches/@pkgjs%2Fparseargs@0.11.0.patch"
+  }
 }

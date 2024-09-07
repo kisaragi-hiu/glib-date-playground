@@ -1,0 +1,31 @@
+diff --git a/internal/primordials.js b/internal/primordials.js
+index 63e23ab117a9ccd324f792113c7a62e2f17e8ea2..c2c88a9cb7ebfb2b548f1afd751a28a8c965382c 100644
+--- a/internal/primordials.js
++++ b/internal/primordials.js
+@@ -189,7 +189,7 @@ function copyPrototype(src, dest, prefix) {
+   'Reflect',
+ ].forEach((name) => {
+   // eslint-disable-next-line no-restricted-globals
+-  copyPropsRenamed(global[name], primordials, name);
++  copyPropsRenamed(globalThis[name], primordials, name);
+ });
+ 
+ // Create copies of intrinsic objects
+@@ -230,7 +230,7 @@ function copyPrototype(src, dest, prefix) {
+   'WeakSet',
+ ].forEach((name) => {
+   // eslint-disable-next-line no-restricted-globals
+-  const original = global[name];
++  const original = globalThis[name];
+   primordials[name] = original;
+   copyPropsRenamed(original, primordials, name);
+   copyPrototype(original.prototype, primordials, `${name}Prototype`);
+@@ -243,7 +243,7 @@ function copyPrototype(src, dest, prefix) {
+   'Promise',
+ ].forEach((name) => {
+   // eslint-disable-next-line no-restricted-globals
+-  const original = global[name];
++  const original = globalThis[name];
+   primordials[name] = original;
+   copyPropsRenamedBound(original, primordials, name);
+   copyPrototype(original.prototype, primordials, `${name}Prototype`);
